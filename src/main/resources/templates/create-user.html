@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+<form action="#" th:action="@{/admin/user-create}" th:object="${user}" method="post">
+    <lable for="username">Name</lable>
+    <input type="text" th:field="*{username}">
+    <lable for="password">Password</lable>
+    <input type="text" th:field="*{password}">
+    <br/>
+    <select required name="role">
+        <option disabled selected value="">Choose role</option>
+        <option value="2">ROLE_ADMIN</option>
+        <option value="1">ROLE_USER</option>
+    </select>
+    <input type="submit" value="Create user">
+</form>
+
+<form action="/logout" method="POST">
+    <button>logout</button>
+</form>
+
+</body>
+</html>

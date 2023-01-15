@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User</title>
+    <title>Users</title>
 </head>
 <body>
-<div th:switch="${user}">
-    <h2 th:case="null">No user found!</h2>
+<div th:switch="${users}">
+    <h2 th:case="null">No users found!</h2>
     <div th:case="*">
-        <h2>User</h2>
+        <h2>Users</h2>
         <table>
             <thead>
             <tr>
@@ -19,15 +19,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr th:each="user : ${users}">
                 <td th:text="${user.id}"></td>
                 <td th:text="${user.getUsername()}"></td>
                 <td th:text="${user.password}"></td>
                 <td th:text="${user.getRoleSetString()}"></td>
+                <td><a th:href="@{/admin/user-update/{id}(id=${user.id})}">Edit</a></td>
+                <td><a th:href="@{/admin/user-delete/{id}(id=${user.id})}">Delete</a></td>
             </tr>
             </tbody>
         </table>
     </div>
+    <p><a href="/admin/user-create">Create user</a></p>
 </div>
 
 <form action="/logout" method="POST">
