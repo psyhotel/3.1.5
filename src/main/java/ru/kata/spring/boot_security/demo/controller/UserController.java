@@ -31,10 +31,9 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public String getUser(@RequestParam(required = false) Model model) {
+    public String getUser(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
-        model.addAttribute("username", name);
         model.addAttribute("user", userService.findByName(name).get());
         return "user";
     }
