@@ -52,13 +52,13 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/{id}/user-delete")
+    @DeleteMapping("/admin/{id}/user-delete")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
         return "redirect:/admin";
     }
 
-    @GetMapping("admin/user-update/{id}")
+    @PatchMapping("admin/user-update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model) {
         User user = userService.findById(id).get();
         model.addAttribute("user", user);

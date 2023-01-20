@@ -26,8 +26,8 @@ public class Util {
     public void generateUsers() {
         roleSet.add(serviceRole.saveRole(new Role("ROLE_USER")));
         roleSet.add(serviceRole.saveRole(new Role("ROLE_ADMIN")));
-        serviceUser.createUser(new User("login", "password", roleSet));
-        serviceUser.createUser(new User("user", "password", roleSet));
+        //password: password
+        serviceUser.createUser(new User("login", "$2a$12$uldC7GclBLFrPxToan7IdehSYxtw6PfgeL/Q5a6x346ekNc9hC98G", roleSet));
+        serviceUser.createUser(new User("user", "$2a$12$uldC7GclBLFrPxToan7IdehSYxtw6PfgeL/Q5a6x346ekNc9hC98G", roleSet));
     }
-
 }

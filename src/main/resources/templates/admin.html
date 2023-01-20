@@ -162,7 +162,7 @@
                                                     </div>
                                                     <form class="modal-body col-md text-center"
                                                           th:action="@{/admin/{id}/user-delete(id=${user.id})}"
-                                                          th:method="GET">
+                                                          th:method="DELETE">
                                                         <div class="modal-body col-md">
                                                             <label for="id"><b>ID</b></label>
                                                             <input th:name="id" th:type="text" class="form-control"

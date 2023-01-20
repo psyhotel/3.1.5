@@ -25,8 +25,13 @@
 </nav>
 <div class="container-fluid h-100">
     <div class="row h-100">
-
         <div class="p-0 col-2">
+            <div sec:authorize="hasRole('ADMIN')" class="nav flex-column nav-pills pt-4" id="v-pills-tab2" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" href="/admin"
+                   role="tab"
+                   aria-controls="v-pills-profile" aria-selected="false">Admin</a>
+            </div>
+
             <div class="nav flex-column nav-pills pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" href="/user" sec:authorize="(hasAnyAuthority('ADMIN', 'USER'))"
                    role="tab"
