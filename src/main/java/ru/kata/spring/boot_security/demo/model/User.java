@@ -39,12 +39,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public User(String name, String password, Collection<? extends GrantedAuthority> authorities) {
-        this.name = name;
-        this.password = password;
-        this.roleSet = (Set<Role>) authorities;
-    }
-
     public User(String name, String password, Set<Role> roleSet) {
         this.name = name;
         this.password = password;
@@ -64,6 +58,13 @@ public class User implements UserDetails {
         this.roleSet = roleSet;
     }
 
+    public User(Long id, String name, String password, Collection<? extends GrantedAuthority> authorities) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.roleSet = (Set<Role>) authorities;
+    }
+
     public User(Long id, String name, String surname, String password, int age, String email, Set<Role> roleSet) {
         this.id = id;
         this.name = name;
@@ -72,6 +73,16 @@ public class User implements UserDetails {
         this.age = age;
         this.email = email;
         this.roleSet = roleSet;
+    }
+
+    public User(Long id, String name, String surname, String password, int age, String email, Collection<? extends GrantedAuthority> authorities) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.age = age;
+        this.email = email;
+        this.roleSet = (Set<Role>) authorities;
     }
 
     public Set<Role> getRoleSet() {

@@ -28,15 +28,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByName(username).get();
-        if (user == null) {
-            throw new UsernameNotFoundException("Unknown user :" + username);
-        }
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 
         for (Role role : user.getRoleSet()) {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getAuthority()));
         }
-        return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
+        return new User(user.getId(), user.getUsername(), user.getSurname(), user.getPassword(), user.getAge(), user.getEmail(), grantedAuthorities);
     }
 }

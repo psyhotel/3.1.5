@@ -12,7 +12,7 @@ public interface ServiceUser {
 
     Optional<User> findByName(String name);
 
-    void createUser(User user);
+    User createUser(User user);
 
     void deleteUser(Long id);
 
