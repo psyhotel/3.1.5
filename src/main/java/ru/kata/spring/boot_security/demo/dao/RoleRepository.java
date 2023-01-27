@@ -6,12 +6,9 @@ import ru.kata.spring.boot_security.demo.model.Role;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Repository
 public interface RoleRepository extends CrudRepository<Role, Long> {
-    //Set<Role> findRolesByIds(Long [] ids);
-
     Optional<Role> findById(Long id);
 
     Optional<Role> findByRole(String role);

@@ -25,7 +25,7 @@ public class Role implements GrantedAuthority {
 
     @JsonIgnore
     @ManyToMany(mappedBy = "roleSet")
-    Set<User> userSet;
+    private Set<User> userSet;
 
     public Long getId() {
         return id;

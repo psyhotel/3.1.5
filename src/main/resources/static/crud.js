@@ -39,7 +39,7 @@ $(document).ready(function () {
 
         $.ajax({
             url: '/admin/update',
-            method: 'post',
+            method: 'patch',
             dataType: 'json',
             data: {
                 "id": dlg.find('#editid').val(),
@@ -102,7 +102,7 @@ $(document).ready(function () {
         })
             .done(function (user) {
                 dlg.find('#deleteid').val(user.id);
-                dlg.find('#deleteusername').val(user.name);
+                dlg.find('#deleteusername').val(user.username);
                 dlg.find('#deletelastname').val(user.surname);
                 dlg.find('#deleteage').val(user.age);
                 dlg.find('#deleteemail').val(user.email);
@@ -128,7 +128,7 @@ $(document).ready(function () {
 
         $.ajax({
             url: '/admin/delete/' + user_id,
-            method: 'post',
+            method: 'delete',
             dataType: 'json'
         })
 
